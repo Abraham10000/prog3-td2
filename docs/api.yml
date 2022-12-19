@@ -1,0 +1,238 @@
+openapi: 3.0.3
+info:
+  title: PROG3 TD2 - OpenAPI 3.0
+  description: |-
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: team
+    description: Everything about team
+  - name: match
+    description: Access to all match
+  - name: player
+    description: Operations about player
+paths:
+  /teams:
+    get:
+      tags:
+        - team
+      summary: Find all team
+      description: Returns all team
+      operationId: getAllTeam
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+    post:
+      tags:
+        - team
+      summary: Add a new team
+      description: Add a new team
+      operationId: addteam
+      requestBody:
+        description: Create a new team
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Team'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '405':
+          description: Invalid input
+    put:
+      tags:
+        - team
+      summary: Update an existing team
+      description: Update an existing team
+      operationId: updateTeam
+      requestBody:
+        description: Update an existent Team
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Team'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Team'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+  /teams/{id}:
+    delete:
+      tags:
+        - team
+      summary: Delete team
+      operationId: deleteteam
+      parameters:
+        - name: id
+          in: path
+          description: The id that needs to be deleted
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+  /matchs:
+    get:
+      tags:
+        - match
+      summary: Find all match
+      description: Returns all match
+      operationId: getAllMatch
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Match'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+    post:
+      tags:
+        - team
+      summary: Add a new team
+      description: Add a new team
+      operationId: addMatch
+      requestBody:
+        description: Create a new team
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Match'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Match'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Match'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Match'
+        '405':
+          description: Invalid input
+    put:
+      tags:
+        - match
+      summary: Update an existing Match
+      description: Update an existing macth
+      operationId: updateMatch
+      requestBody:
+        description: Update an existent match
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Match'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Match'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Match'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Match'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Match'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+  /match/{id}:
+    delete:
+      tags:
+        - match
+      summary: Delete match
+      operationId: deletematch
+      parameters:
+        - name: id
+          in: path
+          description: The id that needs to be deleted
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
