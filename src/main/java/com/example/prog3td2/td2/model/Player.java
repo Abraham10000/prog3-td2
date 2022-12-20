@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "player")
@@ -15,14 +13,14 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlayerEntity {
+public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_player;
     private String name;
     private String position;
     private int number;
-    @OneToMany
-    @JoinColumn(name = "id_player")
-    private Set<TeamEntity> team;
+    @OneToOne
+    @JoinColumn(name = "id_team")
+    private Team team;
 }

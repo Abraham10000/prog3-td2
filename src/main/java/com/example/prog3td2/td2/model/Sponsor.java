@@ -14,13 +14,13 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SponsorEntity {
+public class Sponsor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_spons;
     private String name;
 
     @ManyToMany(mappedBy = "sponsor")
-    List<TeamEntity> team;
+    List<Team> team;
 
 }

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "match")
@@ -15,18 +14,18 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MatchEntity {
+public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_match;
 
     @ManyToOne
     @JoinColumn(name = "id_team_home")
-    private TeamEntity team_home;
+    private Team team_home;
 
     @ManyToOne
     @JoinColumn(name = "id_team_away")
-    private TeamEntity team_away;
+    private Team team_away;
 
     private Date datetime;
     private String stadium;
